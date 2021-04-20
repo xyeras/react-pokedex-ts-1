@@ -13,11 +13,12 @@ const HomePage: React.FC = () => {
     });
 
     searchTerm === '' ? setPokemon(pokemonData) : setPokemon(foundPoke);
-  }, [searchTerm]);
+  }, []);
 
   // useEffect(()=>{},[])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);
     setSearchTerm(event.target.value);
   };
 
