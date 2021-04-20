@@ -7,7 +7,6 @@ const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    console.log('is this rendering');
     const foundPoke = pokemonData.filter(pk => {
       return pk.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
@@ -18,7 +17,6 @@ const HomePage: React.FC = () => {
   // useEffect(()=>{},[])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
     setSearchTerm(event.target.value);
   };
 
