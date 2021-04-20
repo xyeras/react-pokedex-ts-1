@@ -21,4 +21,5 @@ type Pokemon = {
 type Evolution = {
     num: string;
     name: string;
+    img?:string;
 }

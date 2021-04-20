@@ -9,7 +9,11 @@ const AppRoutes: React.FC = () => {
       {/* Nav Component */}
       <Switch>
         <Route path='/' exact component={HomePage} />
-        <Route path='/pokemon/:pokemonId' component={SinglePokemonPage} />
+        <Route
+          path='/pokemon/:pokemonName'
+          exact
+          component={SinglePokemonPage}
+        />
       </Switch>
       {/* Footer */}
     </div>
