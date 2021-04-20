@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
     });
 
     searchTerm === '' ? setPokemon(pokemonData) : setPokemon(foundPoke);
-  }, []);
+  }, [searchTerm]);
 
   // useEffect(()=>{},[])
 
