@@ -11,7 +11,7 @@ const SinglePokemonPage: React.FC = () => {
     let foundPokemon = pokemonData.find(
       pd => pd.name.toLowerCase() === pokemonName
     );
-    // console.log(foundPokemon);
+    console.log(foundPokemon);
     setPokemon(updateEvolution(foundPokemon));
   }, [pokemonName]);
 
