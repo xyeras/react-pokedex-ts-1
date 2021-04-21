@@ -1,29 +1,29 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Link } from 'react-router-dom';
 import { pokemonData } from '../data/pokemonData';
+import PokemonListItem from '../components/PokemonListItem';
 
 const HomePage: React.FC = () => {
+
   const [pokemon, setPokemon] = useState<Pokemon[]>(pokemonData);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
-    console.log('is this rendering');
     const foundPoke = pokemonData.filter(pk => {
       return pk.name.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
     searchTerm === '' ? setPokemon(pokemonData) : setPokemon(foundPoke);
-  }, []);
+  }, [searchTerm]);
 
   // useEffect(()=>{},[])
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
     setSearchTerm(event.target.value);
   };
 
   return (
     <div id='home'>
+
       <div className='row text-center my-3'>
         <div className='col'>
           <h2>Welcome to the Pokemon Pokedex!</h2>
@@ -48,35 +48,12 @@ const HomePage: React.FC = () => {
           </form>
         </div>
       </div>
-      <div className='row'>
-        <div className='col'>
-          <ul className='list-group'>
-            {pokemon.map((poke, index) => {
-              return (
-                <li
-                  className='list-group-item d-flex justify-content-around align-items-center'
-                  key={index}>
-                  {/* section img pulled to left */}
-                  <img src={poke.img} alt={poke.name} />
-                  <div className='poke-info'>
-                    <h2>
-                      <Link to={`/pokemon/${poke.name.toLowerCase()}`}>
-                        {poke.name}
-                      </Link>
-                    </h2>
-                    <div>
-                      <small>Height: {poke.height}</small>
-                      <small>Weight: {poke.weight}</small>
-                    </div>
-                  </div>
-                  {/* section pokemon name that is wrapped in a link */}
-                  {/* section for details under the pokemon name */}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+
+      {pokemon.map((mon, i) => {
+        return (
+          <PokemonListItem pokemon={pokemon} />
+        );
+      })}
     </div>
   );
 };
