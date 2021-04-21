@@ -49,11 +49,9 @@ const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {pokemon.map((mon, i) => {
-        return (
-          <PokemonListItem pokemon={pokemon} />
-        );
-      })}
+
+      <PokemonListItem pokemon={pokemon} />
+
     </div>
   );
 };
