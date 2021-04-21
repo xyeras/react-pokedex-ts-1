@@ -11,14 +11,14 @@ const PokemonListItem: React.FC<PokemonListItemProps> = ( { pokemon } ) => {
   return (
     <div id='pokemon-list-item'>
 
-      <div className='row'>
+      <div className='row d-flex justify-content-center'>
         
-        <div className='col'>
+        <div className='col-6'>
           <ul className='list-group'>
             {pokemon.map((poke, index) => {
               return (
                 <li
-                  className='list-group-item d-flex justify-content-around align-items-center'
+                  className='list-group-item d-flex flex-column align-items-center text-center'
                   key={index}>
                   {/* section img pulled to left */}
                   <img src={poke.img} alt={poke.name} />
