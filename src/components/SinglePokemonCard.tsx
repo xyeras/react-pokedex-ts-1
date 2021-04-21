@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { setTypeColor } from '../services';
 
 interface SinglePokemonCardProps {
-  pokemon: Pokemon;
+  mon: Pokemon;
 }
 
-const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
+const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {mon} ) => {
 
   return (
     <div id='single-pokemon-card'>
@@ -16,15 +16,15 @@ const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
               <div className='row no-gutters'>
                 <div className='col-sm-12 col-md-2'>
                   <div className='img-container text-center d-flex justify-content-center align-items-center'>
-                    <img src={pokemon.img} alt={pokemon.name} />
+                    <img src={mon.img} alt={mon.name} />
                   </div>
                 </div>
                 <div className='col-sm-12 col-md-10'>
                   <div className='card-body'>
                     {/* Card Title */}
                     <h3 className='card-title'>
-                      {pokemon.name}{' '}
-                      <span className='text-secondary'>#{pokemon?.num}</span>
+                      {mon.name}{' '}
+                      <span className='text-secondary'>#{mon?.num}</span>
                     </h3>
                     {/* divider */}
                     <hr />
@@ -32,14 +32,14 @@ const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
                     <div className='row'>
                       <div className='col'>
                         <div className='text-secondary'>Height</div>
-                        <div>{pokemon.height}</div>
+                        <div>{mon.height}</div>
                         <div className='text-secondary mt-3'>Weight</div>
-                        <div>{pokemon.weight}</div>
+                        <div>{mon.weight}</div>
                       </div>
                       <div className='col'>
                         <div className='text-secondary'>Type</div>
                         <div>
-                          {pokemon.type.map((t, i) => {
+                          {mon.type.map((t, i) => {
                             return (
                               <span
                                 className='badge badge-pill text-white mx-1'
@@ -53,7 +53,7 @@ const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
 
                         <div className='text-secondary mt-3'>Weaknesses</div>
                         <div>
-                          {pokemon.weaknesses.map((w, i) => {
+                          {mon.weaknesses.map((w, i) => {
                             return (
                               <span
                                 className='badge badge-pill text-white mx-1'
@@ -73,26 +73,26 @@ const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
                     <div className='row'>
                         <div className='col'>
                             <div className='text-secondary'>Candy</div>
-                            <div>{pokemon.candy}</div>
+                            <div>{mon.candy}</div>
                             <div className='text-secondary mt-3'>Candy Count</div>
-                            <div>{pokemon.candy_count}</div>
+                            <div>{mon.candy_count}</div>
                             <div className='text-secondary mt-3'>Egg</div>
-                            <div>{pokemon.egg}</div>
+                            <div>{mon.egg}</div>
                         </div>
                         <div className='col'>
                             <div className='text-secondary'>Spawn Chance</div>
-                            <div>{pokemon.spawn_chance}</div>
+                            <div>{mon.spawn_chance}</div>
                             <div className='text-secondary mt-3'>Average Spawns</div>
-                            <div>{pokemon.avg_spawns}</div>
+                            <div>{mon.avg_spawns}</div>
                             <div className='text-secondary mt-3'>Spawn Time</div>
-                            <div>{pokemon.spawn_time}</div>
+                            <div>{mon.spawn_time}</div>
                         </div>
                     </div>
                     
                     <hr/>
                     
                     <div className='row'>
-                      {pokemon.prev_evolution?.map((pe, i) => {
+                      {mon.prev_evolution?.map((pe, i) => {
                         return (
                           <div className='col' key={i}>
                             <h5 className='text-secondary'>
@@ -107,7 +107,7 @@ const SinglePokemonCard: React.FC<SinglePokemonCardProps> = ( {pokemon} ) => {
                           </div>
                         );
                       })}
-                      {pokemon.next_evolution?.map((ne, i) => {
+                      {mon.next_evolution?.map((ne, i) => {
                         return (
                           <div className='col' key={i}>
                             <h5 className='text-secondary'>Next Evolution</h5>

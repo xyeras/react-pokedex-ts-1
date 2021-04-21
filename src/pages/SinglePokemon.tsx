@@ -5,15 +5,15 @@ import SinglePokemonCard from '../components/SinglePokemonCard'
 
 const SinglePokemonPage: React.FC = () => {
 
-  const [pokemon, setPokemon] = useState<Pokemon>();
+  const [mon, setMon] = useState<Pokemon>();
   const { pokemonName } = useParams<{ pokemonName: string }>();
 
   useEffect(() => {
     let foundPokemon = pokemonData.find(
       pd => pd.name.toLowerCase() === pokemonName
     );
-    setPokemon(foundPokemon);
-    setPokemon(updateEvolution(foundPokemon));
+    setMon(foundPokemon);
+    setMon(updateEvolution(foundPokemon));
   }, [pokemonName]);
 
   const updateEvolution = (poke: Pokemon | undefined) => {
@@ -52,8 +52,8 @@ const SinglePokemonPage: React.FC = () => {
 
   return (
     <div id='single-pokemon-page'>
-      {pokemon ? (
-        <SinglePokemonCard pokemon={pokemon} />
+      {mon ? (
+        <SinglePokemonCard mon={mon} />
       ) : (
         <h2 className='text-center'>No Pokemon by that name was found!</h2>
       )}
