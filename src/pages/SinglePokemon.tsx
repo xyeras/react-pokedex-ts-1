@@ -110,7 +110,7 @@ const SinglePokemonPage: React.FC = () => {
                     <div className='row'>
                       {pokemon.prev_evolution?.map((pe, i) => {
                         return (
-                          <div className='col'>
+                          <div className='col' key={i}>
                             <h5 className='text-secondary'>
                               Previous Evolution
                             </h5>
@@ -125,7 +125,7 @@ const SinglePokemonPage: React.FC = () => {
                       })}
                       {pokemon.next_evolution?.map((ne, i) => {
                         return (
-                          <div className='col'>
+                          <div className='col' key={i}>
                             <h5 className='text-secondary'>Next Evolution</h5>
                             <div>
                               <Link to={`/pokemon/${ne.name.toLowerCase()}`}>
